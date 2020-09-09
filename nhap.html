@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Nhap thoi</title>
+</head>
+<body>
+<script type="text/javascript">
+function isPrime(a){
+    if (a!=Math.round(a)) return false;
+    if (a<2) return false;
+    if (a==2 || a==3) return true;
+    if (a%2==0) return false;
+    for (let i=3;i<(a-1)/2;i++){
+        if (a%i==0) return false;
+    }return true;
+} 
+
+function detachedSemiPrime(n){
+    if (n<6) return false;
+    for (let i=2;i< Math.round(n/2);i++){
+        if (!isPrime(n) && isPrime(i) && isPrime(n/i)) return [i,n/i];
+    }return [-1];
+}
+
+function factorialDivisible(n){
+    if (n==2||n==3) return true;
+    if (n<2 || n%2==0) return false;
+    var t = Math.floor(Math.sqrt(n))+1;
+    document.writeln("he;o"+t);
+    for (var i=3; i<t;i++){
+        if (n%i) return false;
+    } 
+    return true;
+}
+
+function upperCase(string){
+    if(string.length == 0) return "";
+    var ls = string.split(" ");
+    var lss = "";
+    for (var i of ls){
+        lss += i[0].toUpperCase() + i.slice(1);
+    }
+    return lss;
+}
+
+
+document.write(upperCase("toi di choi"));
+
+
+</script>
+
+</body>
+</html>
