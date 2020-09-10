@@ -43,8 +43,47 @@ function upperCase(string){
     return lss;
 }
 
+function sumPrimeIndex(arr){
+    var N = arr.length;
+    var a =[];
+    var sum =0;
+    for ( let i=2;i<=N+1;i++){
+        a[i]=true;
+    }
+    for (let i=2;i<=N;i++){
+        if (a[i]==true){
+            for(let j=2*i;j<=N;j+=i) a[j]=false;
+        }
+    }
+    for (let i=1;i<arr.length;i++){
+        if (a[i+1]==true) sum+=arr[i];
+    }
+    return sum;
+}
 
-document.write(upperCase("toi di choi"));
+function primeArray(arr){
+    var N=0;
+    for (let i of arr){
+        console.log(i +"    " +N);
+        if (N<i) N=i;
+    }
+    
+    var a=[];
+    for (let i=2;i<=N;i++) a[i] = true;
+    for (let i=2;i<=N;i++){
+        if (a[i]==true) {
+            for (let j=2*i;j<=N;j+=i) a[j]=false;
+        }
+    }
+    var m = a[arr[0]];
+    document.writeln("a[0]: "+ m);
+    for (let i=1;i<arr.length;i++){
+        document.writeln(i +"   "+ a[arr[i]]);
+        if (m!=a[arr[i]]) return false;
+    }
+    return true;
+}
+document.write(primeArray([2607124,7617318,8025398,3276166,3594547,8242525,9452194,3768595,5299779,5227154,3893940,8151003,1262832,291718,3308438,6473247,3792042,8102043,4726302,3811568,5875150,3412717,63868,4325982,8179071,5328889,2938004,2265490,5607291,2213582,9128405,6123467,6064578,7402820,8867887,2290023,933525,8231390,5497557,3870554,537815,6682656,5624097,1271461,8252266,8442939,4816704,5254294,6500126,996483]));
 
 
 </script>
