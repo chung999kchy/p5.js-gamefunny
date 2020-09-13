@@ -1,7 +1,7 @@
 var myShip ;
 var warShip =[];
 var shooter = [];
-var fps = 10;
+var fps = 20;
 var shooter_war =[];
 var run = true;
 var score=0;
